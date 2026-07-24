@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sağlık Randevu Sistemi</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🏥 Sağlık Randevu Sistemi</h1>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Randevu Oluştur</h2>
+
+<label>Hastane</label>
+
+<select id="hospital">
+<option>Şehir Hastanesi</option>
+<option>Devlet Hastanesi</option>
+<option>Eğitim Araştırma Hastanesi</option>
+</select>
+
+<label>Poliklinik</label>
+
+<select id="clinic">
+<option>Dahiliye</option>
+<option>Kardiyoloji</option>
+<option>Ortopedi</option>
+<option>Göz</option>
+<option>KBB</option>
+</select>
+
+<label>Doktor</label>
+
+<select id="doctor">
+<option>Dr. Ahmet Yılmaz</option>
+<option>Dr. Ayşe Kaya</option>
+<option>Dr. Mehmet Demir</option>
+<option>Dr. Elif Çetin</option>
+</select>
+
+<label>Tarih</label>
+
+<input type="date" id="date">
+
+<label>Saat</label>
+
+<input type="time" id="time">
+
+<button onclick="saveAppointment()">
+Randevu Oluştur
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Randevularım</h2>
+
+<div id="appointments"></div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

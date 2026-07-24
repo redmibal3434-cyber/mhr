@@ -1,0 +1,101 @@
+loadAppointments();
+
+function saveAppointment(){
+
+let hospital=document.getElementById("hospital").value;
+
+let clinic=document.getElementById("clinic").value;
+
+let doctor=document.getElementById("doctor").value;
+
+let date=document.getElementById("date").value;
+
+let time=document.getElementById("time").value;
+
+if(date=="" || time==""){
+
+alert("Lütfen tarih ve saat seçiniz.");
+
+return;
+
+}
+
+let appointment={
+
+hospital,
+
+clinic,
+
+doctor,
+
+date,
+
+time
+
+};
+
+let list=JSON.parse(localStorage.getItem("appointments"))||[];
+
+list.push(appointment);
+
+localStorage.setItem("appointments",JSON.stringify(list));
+
+loadAppointments();
+
+alert("Randevu oluşturuldu.");
+
+}
+
+function loadAppointments(){
+
+let container=document.getElementById("appointments");
+
+if(!container) return;
+
+container.innerHTML="";
+
+let list=JSON.parse(localStorage.getItem("appointments"))||[];
+
+list.forEach((item,index)=>{
+
+container.innerHTML+=`
+
+<div class="appointment">
+
+<b>🏥 ${item.hospital}</b><br><br>
+
+Poliklinik : ${item.clinic}<br>
+
+Doktor : ${item.doctor}<br>
+
+Tarih : ${item.date}<br>
+
+Saat : ${item.time}<br><br>
+
+<button class="delete"
+
+onclick="deleteAppointment(${index})">
+
+İptal Et
+
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+function deleteAppointment(index){
+
+let list=JSON.parse(localStorage.getItem("appointments"));
+
+list.splice(index,1);
+
+localStorage.setItem("appointments",JSON.stringify(list));
+
+loadAppointments();
+
+}
